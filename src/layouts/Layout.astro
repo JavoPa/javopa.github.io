@@ -1,14 +1,38 @@
+---
+import { ClientRouter } from 'astro:transitions'
+import '@/styles/global.css'
+import Footer from '@/components/Footer.astro'
+import { fixedTitle } from '@/constants/pageTitles'
+interface Props {
+	title: string
+}
+
+const { title = fixedTitle} = Astro.props
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
+		<title>{title}</title>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Javier Placencia Portfolio</title>
+		<!-- Preload de las fuentes para que no se vea el cambio de fuente al cargar la pagina -->
+		<link rel="preload" href="/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+		<link rel="preload" href="/fonts/Roboto-Medium.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+		<link rel="preload" href="/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+		<!-- Metadata -->
+		<meta name="description" content="Portfolio de Javier Placencia" />
+		<meta name="keywords" content="portfolio, javier placencia, desarrollador web, frontend, backend" />
+		<meta name="author" content="Javier Placencia" />
+		<!-- Habilita la transicion de navegacion del cliente -->
+		<ClientRouter />
 	</head>
 	<body>
-		<slot />
+		<main>
+			<slot />
+		</main>
+		<Footer />
 	</body>
 </html>
 
@@ -18,6 +42,10 @@
 		margin: 0;
 		width: 100%;
 		height: 100%;
-		background-color: #2c2c2c;
+		background: var(--color-theme-dark-blue);
+		color: var(--color-theme-soft-blue);
+		font-family: 'Roboto', sans-serif;
+		display: flex;
+		flex-direction: column;
 	}
 </style>

@@ -1,0 +1,262 @@
+---
+import { Image } from 'astro:assets';
+---
+
+<div id="container">
+	<main>
+		<section id="about">
+			<Image 
+				src="https://avatars.githubusercontent.com/u/143660898?v=4" 
+				alt="Foto de perfil" 
+				id="profile-pic" 
+				width={150} 
+				height={150} 
+				class="profile-pic"
+				loading="eager"
+			/>
+			<h1>Javier Placencia</h1>
+			<p class="description">
+				Ingeniero Civil Informático egresado de la Universidad del Bío-Bío, especializado en desarrollo con experiencia en tecnologías como React, Node.js, Express.js y PHP Laravel. <br>
+				Apasionado por el desarrollo y gestión de proyectos, destacando en la resolución de problemas y digitalización de procesos.
+			</p>
+			<section id="links">
+				<a class="button" href="https://www.linkedin.com/in/javier-placencia/">Linkedin</a>
+				<a class="button" href="mailto:javixempresa@gmail.com">Correo</a>
+			</section>
+		</section>
+		<section id="projects">
+			<h2>Proyectos</h2>
+			<section class="layout">
+			   <a class="item" href="https://github.com/JavoPa/proyecto-becas" target="_blank" rel="noopener noreferrer">
+				   <p class="item-title">Plataforma de Postulación y Gestión Becas Municipales</p>
+				   <p class="item-description">Software para facilitar y optimizar el proceso de solicitud, revisión y asignación de becas a estudiantes.</p>
+				   <p class="item-pie">Tecnologías: React, Node.js, Express.js, MongoDB.</p>
+			   </a>
+			   <a class="item" href="https://github.com/JavoPa/proyecto-bicicletero" target="_blank" rel="noopener noreferrer">
+				   <p class="item-title">Aplicación de Gestión de Acceso a Bicicletero Institucional</p>
+				   <p class="item-description">Aplicación movil y web para controlar, optimizar y digitalizar el proceso de ingreso y salida de bicicletas.</p>
+				   <p class="item-pie">Tecnologías: React Native, Node.js, Express.js, MongoDB.</p>
+			   </a>
+			   <a class="item" href="https://github.com/JavoPa/HorarioAppExpo" target="_blank" rel="noopener noreferrer">
+				   <p class="item-title">Aplicación de Horario de Clases</p>
+				   <p class="item-description">Aplicación movil para subir horario y asignaturas para estudiantes.</p>
+				   <p class="item-pie">Tecnologías: React Native.</p>
+			   </a>
+			   <div class="item item-locked" title="Privado">
+				   <p class="item-title">
+					   Plataforma de Apoyo del Control de Tráfico en el Registro de Servicios Ferroviarios e Itinerarios mediante un Sistema RFID Automatizado
+					   <span class="lock-icon" aria-label="Privado" tabindex="0">
+						   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-left: 6px;"><path d="M17 11V7a5 5 0 0 0-10 0v4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="5" y="11" width="14" height="10" rx="2" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					   </span>
+				   </p>
+				   <p class="item-description">Plataforma y simulación de sensores para el monitoreo en tiempo real de itinerarios ferroviarios.</p>
+				   <p class="item-pie">Tecnologías: React, Node.js, Express.js, MongoDB.</p>
+			   </div>
+			   <a class="item" href="https://github.com/JavoPa/proyecto-mascotas" target="_blank" rel="noopener noreferrer">
+				   <p class="item-title">Aplicación de Mascotas</p>
+				   <p class="item-description">Aplicación móvil para controlar la salud de tus mascotas.</p>
+				   <p class="item-pie">Tecnologías: Kotlin, SQL.</p>
+			   </a>
+			   <div class="item item-locked" title="Privado">
+				   <p class="item-title">
+					   Módulo de Fiscalización Tripulación Ferroviaria
+					   <span class="lock-icon" aria-label="Privado" tabindex="0">
+						   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-left: 6px;"><path d="M17 11V7a5 5 0 0 0-10 0v4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="5" y="11" width="14" height="10" rx="2" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					   </span>
+				   </p>
+				   <p class="item-description">Creación de módulo en plataforma para que la Tripulación fiscalice los viajes.</p>
+				   <p class="item-pie">Tecnologías: PHP Laravel, TailwindCSS, MySQL.</p>
+			   </div>
+			</section>
+		</section>
+	</main>
+</div>
+
+<style>
+	#container {
+		height: 100%;
+	}
+
+	main {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 2em;
+	}
+
+	h1 {
+		font-size: 36px;
+		line-height: 1.2;
+		margin: 0.5em 0;
+		text-align: center;
+	}
+
+	.description {
+		font-size: 16px;
+		line-height: 24px;
+		margin-top: 0.5em;
+		max-width: 650px;
+		text-align: center;
+	}
+
+	#links {
+		display: flex;
+		justify-content: center;
+		gap: 16px;
+		margin-top: 20px;
+	}
+
+	#links a {
+		display: flex;
+		align-items: center;
+		padding: 10px 12px;
+		color: #111827;
+		text-decoration: none;
+		transition: color 0.2s;
+	}
+
+	#links a:hover {
+		color: rgb(78, 80, 86);
+	}
+
+	#links a svg {
+		height: 1em;
+		margin-left: 8px;
+	}
+
+	#links a.button {
+		color: white;
+		background: linear-gradient(83.21deg, #11a182 0%, #022c3d 100%);
+		box-shadow:
+			inset 0 0 0 1px rgba(1, 165, 143, 0.12),
+			inset 0 -2px 0 rgba(0, 141, 129, 0.658);
+		border-radius: 10px;
+	}
+
+	#links a.button:hover {
+		color: rgb(230, 230, 230);
+		box-shadow: none;
+	}
+
+	h2 {
+		margin: 0 0 1em;
+		font-weight: normal;
+		color: #FFF;
+		font-size: 25px;
+	}
+
+	p {
+		color: #FFF;
+		font-size: 16px;
+		line-height: 24px;
+		letter-spacing: -0.006em;
+		margin: 0;
+	}
+
+	#profile-pic {
+		width: 150px;
+		height: 150px;
+		border-radius: 50%;
+		margin-bottom: 16px;
+	}
+
+	#about, #projects {
+		margin: 32px 0;
+		text-align: center;
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+	}
+
+	#projects ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	#projects li {
+		margin-bottom: 16px;
+	}
+
+	.layout {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 8px;
+	}
+
+	.item {
+	.item-locked {
+		position: relative;
+	}
+	.lock-icon {
+		display: inline-block;
+		cursor: default;
+	}
+	.lock-icon svg {
+		opacity: 0.8;
+		transition: opacity 0.2s;
+	}
+	.item-locked:hover .lock-icon svg,
+	.item-locked:focus-within .lock-icon svg {
+		opacity: 1;
+	}
+		border-radius: 8px;
+		border-color: #5b6168;
+		border-width: 0.0625rem;
+		border-style: solid;
+		padding: 16px;
+		text-align: left;
+		background: linear-gradient(83.21deg, #11a182 0%, #022c3d 100%);
+		box-shadow:
+			inset 0 0 0 1px rgba(1, 165, 143, 0.12),
+			inset 0 -2px 0 rgba(0, 141, 129, 0.658);
+		transition: color 0.2s, box-shadow 0.2s, background 0.2s;
+		cursor: pointer;
+	}
+
+	.item:hover {
+		color: rgb(230, 230, 230);
+		box-shadow: none;
+		background: linear-gradient(83.21deg, #0e7c63 0%, #011a24 100%);
+	}
+
+	.item-title {
+		color: #FFF;
+		font-size: 18px;
+		font-weight: bold;
+	}
+
+	.item-description {
+		font-size: 16px;
+		margin-top: 8px;
+	}
+
+	.item-pie {
+		font-size: 14px;
+		margin-top: 8px;
+		color: #FFF;
+	}
+
+	@media screen and (max-height: 368px) {
+	}
+
+	@media screen and (max-width: 768px) {
+		#container {
+			display: flex;
+			flex-direction: column;
+		}
+
+		#links {
+			flex-wrap: wrap;
+		}
+
+		#links a.button {
+			padding: 14px 18px;
+		}
+
+		h1 {
+			line-height: 1.5;
+		}
+	}
+</style>

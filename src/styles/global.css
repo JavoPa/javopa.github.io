@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+    --color-dark-magenta: #2a1f26;
+    --font-fallback: "Adjusted Arial Fallback", system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
+      "Noto Sans", helvetica, arial, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji";
+      --color-theme-light-blue: #A7C6ED; /* Azul claro */
+      --color-theme-dark-blue: #10232e; /* Azul muy oscuro */
+      --color-theme-bright-blue: #B7E0FF; /* Azul vibrante */
+      --color-theme-soft-blue: #E5F2FF; /* Azul muy claro */
+      --color-theme-turquoise-blue: #D0E8E0; /* Azul turquesa */
+      --color-theme-white: #FFFFFF; /* Blanco */
+  }
+
+  @layer base {
+  /* Webkit Browsers (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-theme-dark-blue);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-theme-light-blue);
+    border-radius: 5px;
+    border: 2px solid oklch(67.65% 0.1539 240); 
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-theme-bright-blue); /* Efecto hover */
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-color: var(--color-theme-light-blue) var(--color-theme-dark-blue);
+    scrollbar-width: thin;
+    border-radius: 5px; 
+  }
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-display: swap;
+}
+
+html {
+  font-family: 'Roboto', var(--font-fallback);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
