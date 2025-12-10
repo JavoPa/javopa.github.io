@@ -29,23 +29,40 @@ const { title = fixedTitle} = Astro.props
 		<ClientRouter />
 	</head>
 	<body>
-		<main>
-			<slot />
-		</main>
+		<slot />
 		<Footer />
 	</body>
 </html>
 
 <style>
-	html,
+	html {
+		margin: 0;
+		width: 100%;
+		background: 
+			linear-gradient(180deg, #0a1f2e 0%, #10232e 50%, #0a1f2e 100%),
+			repeating-linear-gradient(45deg, transparent, transparent 100px, rgba(17, 161, 130, 0.02) 100px, rgba(17, 161, 130, 0.02) 200px);
+		color: var(--color-theme-soft-blue);
+		font-family: 'Roboto', sans-serif;
+	}
+
 	body {
 		margin: 0;
 		width: 100%;
-		height: 100%;
-		background: var(--color-theme-dark-blue);
-		color: var(--color-theme-soft-blue);
-		font-family: 'Roboto', sans-serif;
+		min-height: 100vh;
 		display: flex;
 		flex-direction: column;
+		position: relative;
+	}
+
+	body::before {
+		content: '';
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 300px;
+		background: radial-gradient(ellipse at top, rgba(17, 161, 130, 0.15) 0%, transparent 70%);
+		pointer-events: none;
+		z-index: 0;
 	}
 </style>
