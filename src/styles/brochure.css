@@ -1,0 +1,268 @@
+/* A shareable corporate presentation, with its own light editorial treatment. */
+body.brochure-page { background: #f4f3ed; color: #253025; }
+.brochure-page ::selection { background: #d1e1bc; color: #253025; }
+.brochure-page :is(a,button):focus-visible { outline-color: #45603a; }
+.brochure-container { width: min(1160px,calc(100% - 80px)); margin-inline: auto; }
+.brochure-toolbar { border-bottom: 1px solid #d9ddd1; }
+.brochure-toolbar-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brochure-back { display: flex; align-items: center; gap: 10px; font-size: 12px; color: #52604d; padding-block: 10px; }
+.brochure-back > svg { transform: rotate(180deg); }
+.brochure-back:hover { color: #253025; }
+.brochure-tools { display: flex; gap: 12px; }
+.brochure-tool { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 9px 13px; font-size: 11px; border: 1px solid #cdd4c4; border-radius: 4px; background: transparent; color: #43533b; }
+.brochure-tool:hover { background: #e8ecdf; }
+.brochure-main { padding-block: 38px 25px; }
+.brochure-cover { background: #e7ebde; border: 1px solid #d4dbca; border-radius: 5px; padding: 38px 45px 0; overflow: hidden; }
+.brochure-cover-top { display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+.brochure-identity { display: flex; align-items: center; gap: 17px; font-size: 15px; font-weight: 500; line-height: 1.5; }
+.brochure-monogram { font-size: 46px; letter-spacing: -4px; line-height: 1; font-weight: 700; }
+.brochure-monogram > span { color: #667e50; }
+.brochure-identity small { display: block; font-size: 10px; font-weight: 400; color: #5b6953; margin-top: 3px; }
+.brochure-edition { text-align: right; font: 400 9px/1.8 var(--mono); letter-spacing: 1px; color: #45573c; }
+.brochure-edition > span { letter-spacing: .2px; color: #59674f; }
+.brochure-cover-content { display: grid; grid-template-columns: 1.65fr 1fr; gap: 55px; padding-block: 64px 59px; align-items: center; }
+.brochure-eyebrow { font: 400 10px/1.8 var(--mono); letter-spacing: 1px; color: #5b6c50; }
+.brochure-eyebrow > span { color: #3e5d31; margin-right: 12px; }
+.brochure-cover h1 { font-size: clamp(43px,5.3vw,71px); line-height: 1.08; letter-spacing: -2.5px; margin-top: 22px; }
+.brochure-cover h1 em { color: #5b7446; }
+.brochure-cover-lead { font-size: 17px; line-height: 1.8; color: #56644f; max-width: 480px; margin-top: 25px; }
+.brochure-button { display: inline-flex; align-items: center; justify-content: center; gap: 25px; min-height: 50px; padding: 13px 20px; font-size: 12px; font-weight: 500; border-radius: 4px; margin-top: 28px; }
+.brochure-button-dark { background: #293725; color: #f3f4ec; }
+.brochure-button-dark:hover { background: #415438; }
+.brochure-cover-aside { border-left: 1px solid #bdc9af; padding-left: 28px; }
+.brochure-aside-label { font: 400 8px/1.8 var(--mono); letter-spacing: 1px; color: #58684d; }
+.brochure-cover-aside ol { margin-top: 22px; }
+.brochure-cover-aside li { display: grid; grid-template-columns: 20px 26px 1fr; gap: 10px; align-items: center; padding-block: 16px; border-bottom: 1px solid #cad3bd; }
+.brochure-cover-aside li > span { font: 400 9px/1.8 var(--mono); color: #58684d; }
+.brochure-cover-aside li > svg { color: #5b7446; }
+.brochure-cover-aside li > p { font-size: 13px; line-height: 1.6; }
+.brochure-cover-note { font-size: 11px; line-height: 1.9; color: #5b6a52; margin-top: 25px; }
+.brochure-cover-note strong { font-weight: 500; color: #33482c; }
+.brochure-cover-bottom { border-top: 1px solid #c3ceb6; padding-block: 19px; display: flex; align-items: center; justify-content: space-between; gap: 15px; color: #53634a; font-size: 10px; }
+.brochure-cover-bottom > a { display: flex; align-items: center; gap: 11px; }
+.brochure-section { padding-block: 70px; border-bottom: 1px solid #d5dbcd; }
+.brochure-section-heading { max-width: 700px; }
+.brochure-section h2 { font-size: 41px; letter-spacing: -1.2px; margin-top: 18px; }
+.brochure-section h2 > span { color: #708066; }
+.brochure-section-heading > p:last-child:not(.brochure-eyebrow) { max-width: 650px; font-size: 15px; line-height: 1.85; color: #5d6956; margin-top: 22px; }
+.brochure-service-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 32px; margin-top: 38px; }
+.brochure-service { border-top: 1px solid #98aa87; padding-top: 23px; display: flex; flex-direction: column; }
+.brochure-service-top { display: flex; align-items: center; justify-content: space-between; color: #5f7c4b; margin-bottom: 23px; }
+.brochure-service-top > span { font: 400 10px/1.6 var(--mono); }
+.brochure-service h3 { font-size: 25px; line-height: 1.25; letter-spacing: -.5px; }
+.brochure-service > p { font-size: 14px; line-height: 1.85; color: #5d6956; margin-block: 16px 22px; }
+.brochure-service-tags { font: 400 9px/1.9 var(--mono); color: #4e6840; margin-top: auto; }
+.brochure-contexts { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 30px; padding: 25px 28px; margin-top: 38px; background: #e9ecdf; border-radius: 4px; }
+.brochure-contexts > div { display: flex; align-items: flex-start; gap: 14px; }
+.brochure-contexts svg { color: #5e784d; margin-top: 2px; }
+.brochure-contexts h3 { font-size: 16px; }
+.brochure-contexts p { color: #5d6956; font-size: 12px; line-height: 1.85; margin-top: 9px; }
+.brochure-experience-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; margin-top: 35px; }
+.brochure-experience-card { background: #fbfcf7; border: 1px solid #d4dbca; padding: 30px; border-radius: 5px; display: flex; flex-direction: column; }
+.brochure-company { font-size: 20px; font-weight: 500; line-height: 1.5; color: #455e36; }
+.brochure-work-area { font-size: 10px; color: #64725b; margin-top: 5px; }
+.brochure-experience-card h3 { font-size: 25px; line-height: 1.25; letter-spacing: -.5px; margin-top: 25px; }
+.brochure-work-description { font-size: 14px; color: #5d6956; line-height: 1.9; margin-block: 18px 24px; }
+.brochure-contribution { border-top: 1px solid #d8dfcf; display: flex; align-items: flex-start; gap: 10px; padding-top: 18px; margin-top: auto; color: #425a35; font-size: 12px; line-height: 1.85; }
+.brochure-contribution svg { margin-top: 3px; }
+.brochure-projects-heading { display: flex; align-items: center; justify-content: space-between; gap: 25px; margin-block: 40px 20px; }
+.brochure-projects-heading h3 { font-size: 23px; letter-spacing: -.5px; }
+.brochure-projects-heading a { display: flex; align-items: center; gap: 10px; font-size: 12px; color: #526c43; }
+.brochure-project { display: grid; grid-template-columns: 35px 1fr; gap: 18px; padding-block: 22px; border-top: 1px solid #d5dbcd; }
+.brochure-project-number { font: 400 11px/1.6 var(--mono); color: #5a704b; padding-top: 3px; }
+.brochure-project-client { font: 400 9px/1.8 var(--mono); color: #627456; margin-bottom: 8px; }
+.brochure-project h4 { font-size: 20px; line-height: 1.4; letter-spacing: -.3px; }
+.brochure-project h4 a > svg { display: inline-block; margin-left: 6px; color: #597b43; vertical-align: middle; }
+.brochure-project h4 a:hover { color: #5b7446; }
+.brochure-project h4 + p { font-size: 13px; line-height: 1.85; color: #5d6956; max-width: 880px; margin-top: 10px; }
+.brochure-process { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 30px; margin-top: 38px; }
+.brochure-process li > span { display: block; color: #5b7748; font: 400 11px/1.6 var(--mono); padding-bottom: 15px; border-bottom: 1px solid #b6c3a9; }
+.brochure-process h3 { font-size: 20px; margin-top: 18px; line-height: 1.3; }
+.brochure-process p { font-size: 13px; color: #5d6956; line-height: 1.85; margin-top: 12px; }
+.brochure-person { display: flex; align-items: center; gap: 22px; background: #e9ecdf; border: 1px solid #d5ddca; padding: 26px; border-radius: 4px; margin-top: 40px; }
+.brochure-person-mark { width: 68px; height: 68px; border: 1px solid #adbf9b; border-radius: 50%; display: grid; place-items: center; font-size: 35px; line-height: 1; letter-spacing: -3px; font-weight: 700; color: #526c40; flex-shrink: 0; }
+.brochure-person > div { flex: 1; }
+.brochure-person h3 { font-size: 20px; }
+.brochure-person p { font-size: 12px; color: #5d6956; line-height: 1.85; margin-top: 8px; max-width: 650px; }
+.brochure-person > a { font-size: 11px; display: flex; align-items: center; gap: 10px; color: #536e42; flex-shrink: 0; }
+.brochure-contact { background: #263322; color: #f1f3e9; border-radius: 5px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 55px; padding: 45px; margin-top: 45px; }
+.brochure-contact .brochure-eyebrow { color: #bccda9; }
+.brochure-contact h2 { font-size: 38px; letter-spacing: -1px; line-height: 1.2; margin-top: 19px; }
+.brochure-contact h2 > span { color: #c9dea9; }
+.brochure-contact > div > p:last-of-type { color: #c1ccb8; font-size: 14px; line-height: 1.85; margin-top: 19px; max-width: 470px; }
+.brochure-button-sage { background: #c9dea9; color: #263322; }
+.brochure-button-sage:hover { background: #dfedcd; }
+.brochure-contact-details { font-style: normal; align-self: center; display: flex; flex-direction: column; align-items: flex-start; gap: 18px; min-width: 0; }
+.brochure-contact-details > span { font: 400 9px/1.8 var(--mono); color: #bccda9; letter-spacing: 1px; }
+.brochure-contact-details > a { display: inline-flex; align-items: center; gap: 12px; font-size: 13px; max-width: 100%; overflow-wrap: anywhere; }
+.brochure-contact-details > .brochure-email { font-size: 21px; letter-spacing: -.3px; padding-bottom: 15px; border-bottom: 1px solid #596e4a; width: 100%; }
+.brochure-contact-details > p { font-size: 10px; line-height: 1.85; color: #bccda9; }
+.brochure-contact :is(a,button):focus-visible { outline-color: #c9dea9; }
+.brochure-permalink { color: #5f6f54; font-size: 10px; text-align: center; padding-block: 24px 5px; overflow-wrap: anywhere; }
+.brochure-permalink a { text-decoration: underline; text-underline-offset: 3px; }
+.brochure-page .site-footer { color: #f0f0e9; }
+.brochure-page .site-footer a:focus-visible { outline-color: #c9dea9; }
+
+@media (max-width: 1000px) {
+  .brochure-container { width: calc(100% - 56px); }
+  .brochure-cover { padding: 30px 32px 0; }
+  .brochure-cover-content { gap: 30px; grid-template-columns: 1.6fr 1fr; }
+  .brochure-cover-aside { padding-left: 22px; }
+  .brochure-cover-aside li { grid-template-columns: 18px 1fr; gap: 7px; }
+  .brochure-cover-aside li > svg { display: none; }
+  .brochure-cover-lead { font-size: 16px; }
+  .brochure-service-grid { gap: 25px; }
+  .brochure-service h3 { font-size: 23px; }
+  .brochure-service-tags { font-size: 8px; }
+  .brochure-experience-card { padding: 26px; }
+  .brochure-process { gap: 23px; }
+  .brochure-person { flex-wrap: wrap; }
+  .brochure-person > a { width: 100%; margin-left: 90px; }
+  .brochure-contact { gap: 30px; padding: 35px; }
+  .brochure-contact h2 { font-size: 33px; }
+  .brochure-contact-details > .brochure-email { font-size: 18px; }
+}
+@media (max-width: 760px) {
+  .brochure-container { width: calc(100% - 36px); }
+  .brochure-toolbar-inner { flex-wrap: wrap; justify-content: flex-start; gap: 0 20px; padding-block: 13px; }
+  .brochure-tools { flex-wrap: wrap; gap: 8px; }
+  .brochure-tool { font-size: 10px; padding-inline: 10px; }
+  .brochure-main { padding-top: 23px; }
+  .brochure-cover { padding: 25px 25px 0; }
+  .brochure-cover-top { align-items: flex-start; gap: 15px; }
+  .brochure-identity { font-size: 13px; gap: 12px; }
+  .brochure-monogram { font-size: 39px; }
+  .brochure-identity small { font-size: 8px; max-width: 130px; }
+  .brochure-edition { font-size: 7px; letter-spacing: .5px; }
+  .brochure-cover-content { grid-template-columns: 1fr; gap: 32px; padding-block: 45px 32px; }
+  .brochure-cover h1 { font-size: clamp(41px,8vw,62px); letter-spacing: -1.8px; }
+  .brochure-eyebrow { font-size: 9px; letter-spacing: .8px; }
+  .brochure-cover-lead { font-size: 16px; margin-top: 23px; }
+  .brochure-cover-aside { border-left: 0; border-top: 1px solid #bdc9af; padding: 22px 0 0; }
+  .brochure-cover-aside ol { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; margin-top: 15px; }
+  .brochure-cover-aside li { grid-template-columns: 1fr; align-content: start; padding-block: 10px; border: 0; }
+  .brochure-cover-aside li > p { font-size: 12px; }
+  .brochure-cover-note { display: none; }
+  .brochure-cover-bottom { align-items: flex-start; flex-direction: column; gap: 10px; font-size: 9px; padding-block: 17px; }
+  .brochure-button { font-size: 12px; gap: 20px; padding-inline: 17px; }
+  .brochure-section { padding-block: 52px; }
+  .brochure-section h2 { font-size: 34px; letter-spacing: -.9px; }
+  .brochure-section-heading > p:last-child:not(.brochure-eyebrow) { font-size: 14px; }
+  .brochure-service-grid { grid-template-columns: 1fr; gap: 29px; margin-top: 29px; }
+  .brochure-service { padding-top: 20px; }
+  .brochure-service-top { margin-bottom: 18px; }
+  .brochure-service h3 { font-size: 27px; max-width: 400px; }
+  .brochure-service > p { max-width: 560px; }
+  .brochure-service-tags { font-size: 10px; }
+  .brochure-contexts { grid-template-columns: 1fr; gap: 25px; padding: 24px; }
+  .brochure-contexts p { font-size: 13px; }
+  .brochure-experience-grid { grid-template-columns: 1fr; gap: 20px; margin-top: 28px; }
+  .brochure-experience-card { padding: 25px; }
+  .brochure-work-area { font-size: 11px; }
+  .brochure-projects-heading { align-items: flex-start; flex-direction: column; gap: 15px; margin-top: 32px; }
+  .brochure-project { grid-template-columns: 25px 1fr; gap: 10px; }
+  .brochure-project h4 { font-size: 19px; }
+  .brochure-project-client { font-size: 8px; }
+  .brochure-process { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 29px 22px; margin-top: 30px; }
+  .brochure-process h3 { font-size: 20px; }
+  .brochure-person { gap: 15px; padding: 23px; align-items: flex-start; }
+  .brochure-person-mark { width: 49px; height: 49px; font-size: 29px; }
+  .brochure-person h3 { font-size: 19px; }
+  .brochure-person p { font-size: 11px; }
+  .brochure-person > a { margin-left: 0; }
+  .brochure-contact { grid-template-columns: 1fr; gap: 33px; padding: 29px 25px; margin-top: 30px; }
+  .brochure-contact h2 { font-size: 32px; }
+  .brochure-contact-details > .brochure-email { font-size: 21px; }
+  .brochure-permalink { font-size: 9px; }
+}
+@media (max-width: 420px) {
+  .brochure-cover { padding-inline: 21px; }
+  .brochure-cover-top { flex-wrap: wrap; gap: 20px; }
+  .brochure-edition { text-align: left; }
+  .brochure-edition br { display: none; }
+  .brochure-edition > span { margin-left: 9px; }
+  .brochure-cover-content { padding-top: 32px; }
+  .brochure-cover h1 { font-size: clamp(36px,10vw,42px); letter-spacing: -1.2px; }
+  .brochure-cover-aside ol { grid-template-columns: 1fr; gap: 0; }
+  .brochure-cover-aside li { grid-template-columns: 18px 1fr; gap: 10px; }
+  .brochure-cover-aside li > p { font-size: 13px; }
+  .brochure-cover-lead { font-size: 15px; }
+  .brochure-button { gap: 10px; font-size: 11px; padding-inline: 14px; }
+  .brochure-section h2 { font-size: 30px; }
+  .brochure-company { font-size: 19px; }
+  .brochure-experience-card h3 { font-size: 24px; }
+  .brochure-process { grid-template-columns: 1fr; gap: 26px; }
+  .brochure-person { padding: 20px; }
+  .brochure-person-mark { display: none; }
+  .brochure-contact h2 { font-size: 29px; }
+  .brochure-contact-details > .brochure-email { font-size: 18px; }
+}
+
+/* The browser print action also provides Save as PDF where supported. */
+@page { size: A4; margin: 15mm; }
+@media print {
+  html { scroll-padding-top: 0; scrollbar-gutter: auto; }
+  body.brochure-page { background: #fff; color: #1e2b1c; font-size: 10pt; }
+  .brochure-toolbar, .brochure-page .site-footer, .brochure-page .skip-link { display: none !important; }
+  .brochure-container { width: 100%; max-width: none; }
+  .brochure-main { padding: 0; }
+  .brochure-cover { padding: 7mm 7mm 0; background: #f1f4eb; border-color: #b7c2ab; break-inside: avoid; }
+  .brochure-cover-top { flex-wrap: nowrap; }
+  .brochure-edition { text-align: right; font-size: 7pt; }
+  .brochure-cover-content { grid-template-columns: 1.6fr 1fr; gap: 7mm; padding-block: 10mm; }
+  .brochure-cover h1 { font-size: 33pt; letter-spacing: -1pt; }
+  .brochure-cover-lead { font-size: 11pt; line-height: 1.6; }
+  .brochure-cover-aside { border-left: 1px solid #bdc9af; border-top: 0; padding: 0 0 0 5mm; }
+  .brochure-cover-aside ol { display: block; }
+  .brochure-cover-aside li { display: grid; grid-template-columns: 15px 1fr; gap: 8px; border-bottom: 1px solid #cad3bd; padding-block: 3mm; }
+  .brochure-cover-aside li > svg { display: none; }
+  .brochure-cover-aside li > p { font-size: 9pt; }
+  .brochure-cover-bottom { flex-direction: row; font-size: 8pt; padding-block: 4mm; }
+  .brochure-cover .brochure-button { display: none; }
+  .brochure-section { padding-block: 8mm; }
+  .brochure-eyebrow { font-size: 7pt; }
+  .brochure-section h2 { font-size: 23pt; margin-top: 3mm; }
+  .brochure-section-heading { break-inside: avoid; break-after: avoid; }
+  .brochure-section-heading > p:last-child:not(.brochure-eyebrow) { font-size: 10pt; margin-top: 4mm; }
+  .brochure-service-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 6mm; margin-top: 6mm; }
+  .brochure-service { break-inside: avoid; padding-top: 4mm; }
+  .brochure-service-top { margin-bottom: 4mm; }
+  .brochure-service h3 { font-size: 14pt; }
+  .brochure-service > p { font-size: 9pt; margin-block: 3mm 4mm; }
+  .brochure-service-tags { font-size: 7pt; }
+  .brochure-contexts { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 6mm; margin-top: 6mm; padding: 5mm; break-inside: avoid; }
+  .brochure-contexts h3 { font-size: 11pt; }
+  .brochure-contexts p { font-size: 9pt; }
+  .brochure-experience-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 5mm; margin-top: 6mm; }
+  .brochure-experience-card { background: #fff; padding: 5mm; break-inside: avoid; }
+  .brochure-company { font-size: 13pt; }
+  .brochure-work-area { font-size: 8pt; }
+  .brochure-experience-card h3 { font-size: 15pt; margin-top: 5mm; }
+  .brochure-work-description { font-size: 9pt; margin-block: 4mm; }
+  .brochure-contribution { font-size: 9pt; padding-top: 4mm; }
+  .brochure-projects-heading { flex-direction: row; margin-block: 7mm 3mm; break-after: avoid; }
+  .brochure-projects-heading h3 { font-size: 15pt; }
+  .brochure-projects-heading a { font-size: 9pt; }
+  .brochure-project { break-inside: avoid; padding-block: 4mm; }
+  .brochure-project h4 { font-size: 12pt; }
+  .brochure-project h4 + p { font-size: 9pt; }
+  .brochure-project-client { font-size: 7pt; }
+  .brochure-process { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 6mm; margin-top: 6mm; }
+  .brochure-process li { break-inside: avoid; }
+  .brochure-process h3 { font-size: 13pt; }
+  .brochure-process p { font-size: 9pt; }
+  .brochure-person { break-inside: avoid; padding: 5mm; margin-top: 7mm; }
+  .brochure-person h3 { font-size: 13pt; }
+  .brochure-person p { font-size: 9pt; }
+  .brochure-contact { break-inside: avoid; grid-template-columns: 1.2fr 1fr; background: #f1f4eb; color: #1e2b1c; border: 1px solid #b7c2ab; padding: 6mm; gap: 7mm; margin-top: 7mm; }
+  .brochure-contact h2 { font-size: 22pt; }
+  .brochure-contact h2 > span, .brochure-contact .brochure-eyebrow { color: #4a633b; }
+  .brochure-contact > div > p:last-of-type { font-size: 9pt; color: #4b5943; }
+  .brochure-contact-details > span, .brochure-contact-details > p { color: #4b5943; }
+  .brochure-contact-details > a { font-size: 9pt; }
+  .brochure-contact-details > .brochure-email { font-size: 11pt; }
+  .brochure-contact .brochure-button { display: none; }
+  .brochure-permalink { font-size: 8pt; padding-block: 5mm 0; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  p { orphans: 3; widows: 3; }
+}

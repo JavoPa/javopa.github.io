@@ -2,17 +2,28 @@
 import '@/styles/global.css';
 import Footer from '@/components/Footer.astro';
 import { fixedTitle } from '@/constants/pageTitles';
-interface Props { title?: string; }
-const { title = fixedTitle } = Astro.props;
-const description = 'Javier Placencia, Ingeniero Civil Informático. Sistemas empresariales, desarrollo Full Stack y transformación digital para digitalizar procesos de gestión, ventas, cobranzas y operación.';
-const canonical = new URL(Astro.url.pathname, Astro.site);
+interface Props {
+  title?: string;
+  description?: string;
+  bodyClass?: string;
+  colorScheme?: 'dark' | 'light';
+  canonicalPath?: string;
+}
+const {
+  title = fixedTitle,
+  description = 'Javier Placencia, Ingeniero Civil Informático. Sistemas empresariales, desarrollo Full Stack y transformación digital para digitalizar procesos de gestión, ventas, cobranzas y operación.',
+  bodyClass,
+  colorScheme = 'dark',
+  canonicalPath = Astro.url.pathname,
+} = Astro.props;
+const canonical = new URL(canonicalPath, Astro.site);
 const image = new URL('/images/social-card.png', Astro.site);
 const schema = { '@context': 'https://schema.org', '@type': 'Person', name: 'Javier Placencia', url: Astro.site?.href, jobTitle: 'Ingeniero Civil Informático · Desarrollador independiente de software', email: 'mailto:javixempresa@gmail.com', alumniOf: { '@type': 'CollegeOrUniversity', name: 'Universidad del Bío-Bío' }, sameAs: ['https://github.com/JavoPa', 'https://www.linkedin.com/in/javier-placencia/'], knowsAbout: ['Sistemas empresariales', 'Desarrollo Full Stack', 'Transformación digital', 'Automatización de procesos', 'Python', 'React', 'Optimización matemática'] };
 ---
 <!doctype html>
 <html lang="es"><head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#151817" /><meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content={colorScheme === 'light' ? '#f4f3ed' : '#151817'} /><meta name="color-scheme" content={colorScheme} />
   <title>{title}</title><link rel="canonical" href={canonical} /><link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preload" href="/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
   <link rel="preload" href="/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
@@ -21,4 +32,5 @@ const schema = { '@context': 'https://schema.org', '@type': 'Person', name: 'Jav
   <meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:url" content={canonical} /><meta property="og:image" content={image} /><meta property="og:image:type" content="image/png" /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:image:alt" content="Javier Placencia. Software que hace avanzar tu operación." />
   <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content={title} /><meta name="twitter:description" content={description} /><meta name="twitter:image" content={image} /><meta name="twitter:image:alt" content="Javier Placencia. Software que hace avanzar tu operación." />
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-</head><body><slot /><Footer /></body></html>
+  <slot name="head" />
+</head><body class={bodyClass}><slot /><Footer /></body></html>

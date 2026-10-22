@@ -24,6 +24,8 @@ npm run preview
 
 - `src/data/portfolio.ts`: datos de contacto, proyectos, experiencia profesional, servicios y tecnologías.
 - `src/components/Inicio.astro`: secciones e interacciones de la página.
+- `src/pages/brochure/index.astro`: brochure corporativo con enlace propio en `/brochure/`.
+- `src/styles/brochure.css`: diseño del brochure y estilos de impresión.
 - `src/components/ProjectCard.astro`: presentación y casos de los proyectos destacados.
 - `src/components/SystemVisual.astro`: esquemas conceptuales creados con HTML, CSS y SVG.
 - `src/components/Header.astro`: navegación y menú móvil.
@@ -36,6 +38,17 @@ El portfolio incluye los proyectos de Automatización y Optimización de Turnos,
 La presentación de servicios abarca sistemas empresariales a medida, automatización, transformación digital e integración y evolución de sistemas. El bloque de experiencia profesional recoge el liderazgo Full Stack y la mejora del sistema de gestión integrado en EFE SUR, junto con la digitalización de ventas y cobranzas para el grupo empresarial de importadoras Durban, Giorgio y Vergio.
 
 Los casos de proyecto usan un diálogo nativo accesible, con navegación por teclado y cierre con Escape. Si JavaScript no está disponible, los detalles siguen funcionando como desplegables. Las tarjetas, enlaces de contacto y navegación permanecen disponibles sin JavaScript; los filtros y la copia de correo se habilitan progresivamente.
+
+## Brochure corporativo
+
+La página `/brochure/` presenta los servicios, la experiencia profesional, proyectos de referencia, la forma de trabajo y los datos de contacto en un formato comercial independiente. Está enlazada desde la navegación del portfolio y añadida al sitemap.
+
+- Vista local: `http://localhost:4321/brochure/` al iniciar el servidor con el puerto habitual.
+- Dirección de publicación: `https://javopa.github.io/brochure/`.
+- **Copiar enlace** copia la dirección pública del brochure; requiere un contexto seguro y permiso del navegador para acceder al portapapeles.
+- **Imprimir / Guardar PDF** abre la impresión del navegador con estilos específicos para A4; el guardado como PDF depende del navegador. No se genera ni descarga un PDF automáticamente.
+
+El contenido permanece accesible sin JavaScript. Los datos de contacto, servicios, experiencia y proyectos reutilizan `src/data/portfolio.ts`.
 
 ## Publicación
 

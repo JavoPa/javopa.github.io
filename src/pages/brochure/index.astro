@@ -1,0 +1,140 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Icon from '../../components/Icon.astro';
+import { profile, services, workExperience, featuredProjects } from '../../data/portfolio';
+import '../../styles/brochure.css';
+
+const brochureUrl = new URL('/brochure/', Astro.site).href;
+const siteUrl = Astro.site!.href;
+const process = [
+  { title: 'Entender el negocio', description: 'Reviso contigo los procesos, las personas que los utilizan y el problema que necesitas resolver.' },
+  { title: 'Definir la solución', description: 'Acordamos el alcance, las prioridades y una propuesta técnica alineada con tu operación.' },
+  { title: 'Desarrollar y validar', description: 'Construyo la solución con revisiones durante el proceso y validación de su funcionamiento.' },
+  { title: 'Implementar', description: 'Preparo el despliegue y acompaño la puesta en marcha de la herramienta.' },
+];
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Desarrollo de software a medida para empresas',
+  description: 'Sistemas empresariales, automatización de procesos, transformación digital e integración de sistemas.',
+  url: brochureUrl,
+  provider: { '@type': 'Person', name: profile.name, url: siteUrl },
+  serviceType: services.map(service => service.title),
+};
+---
+
+<Layout
+  title="Brochure corporativo | Javier Placencia · Software para empresas"
+  description="Conoce mis servicios de desarrollo de sistemas empresariales, automatización y transformación digital. Experiencia en EFE y en las importadoras Durban, Giorgio y Vergio."
+  bodyClass="brochure-page"
+  colorScheme="light"
+  canonicalPath="/brochure/"
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="brochure-toolbar">
+    <div class="brochure-container brochure-toolbar-inner">
+      <a class="brochure-back" href="/"><Icon name="arrow" size={16} /> Volver al portfolio</a>
+      <div class="brochure-tools">
+        <button type="button" class="brochure-tool" id="share-brochure" data-url={brochureUrl} hidden><Icon name="copy" size={15} /><span>Copiar enlace</span></button>
+        <button type="button" class="brochure-tool" id="print-brochure" hidden><Icon name="printer" size={16} /> Imprimir / Guardar PDF</button>
+      </div>
+      <span class="sr-only" id="brochure-share-status" role="status" aria-live="polite"></span>
+    </div>
+  </header>
+
+  <main class="brochure-main brochure-container" id="contenido">
+    <section class="brochure-cover" id="inicio" aria-labelledby="brochure-title">
+      <div class="brochure-cover-top">
+        <a class="brochure-identity" href="/" aria-label="Ir al portfolio de Javier Placencia"><span class="brochure-monogram">jp<span>.</span></span><span>Javier Placencia<small>Desarrollo independiente de software</small></span></a>
+        <span class="brochure-edition">BROCHURE CORPORATIVO<br /><span>Servicios de desarrollo</span></span>
+      </div>
+      <div class="brochure-cover-content">
+        <div class="brochure-cover-copy">
+          <p class="brochure-eyebrow">INGENIERÍA DE SOFTWARE PARA EMPRESAS</p>
+          <h1 id="brochure-title">Tu empresa,<br /><em>mejor conectada.</em></h1>
+          <p class="brochure-cover-lead">Sistemas empresariales, automatización y transformación digital para mejorar la forma en que trabaja tu equipo.</p>
+          <a class="brochure-button brochure-button-dark" href="#contacto">Conversemos sobre tu proyecto <Icon name="northeast" size={18} /></a>
+        </div>
+        <aside class="brochure-cover-aside" aria-label="Áreas de servicio">
+          <span class="brochure-aside-label">DEL PROCESO A LA SOLUCIÓN</span>
+          <ol>{services.map(service => <li><span>{service.number}</span><Icon name={service.icon} size={24} /><p>{service.title}</p></li>)}</ol>
+          <p class="brochure-cover-note">Comunicación directa.<br />Visión completa del proyecto.<br /><strong>De principio a fin.</strong></p>
+        </aside>
+      </div>
+      <div class="brochure-cover-bottom"><span>Javier Placencia · Ingeniero Civil Informático</span><a href={siteUrl}>javopa.github.io <Icon name="northeast" size={15} /></a></div>
+    </section>
+
+    <section class="brochure-section" id="servicios" aria-labelledby="brochure-services-title">
+      <div class="brochure-section-heading"><p class="brochure-eyebrow"><span>01 /</span> QUÉ PUEDO HACER POR TU EMPRESA</p><h2 id="brochure-services-title">Software que responde<br /><span>a tu forma de trabajar.</span></h2><p>Desarrollo herramientas para conectar la gestión con la operación, digitalizar tareas manuales y evolucionar los sistemas que tu empresa ya utiliza.</p></div>
+      <div class="brochure-service-grid">{services.map(service => (
+        <article class="brochure-service">
+          <div class="brochure-service-top"><Icon name={service.icon} size={29} /><span>/{service.number}</span></div>
+          <h3>{service.title}</h3><p>{service.description}</p><span class="brochure-service-tags">{service.tags}</span>
+        </article>
+      ))}</div>
+      <div class="brochure-contexts">
+        <div><Icon name="layers" size={22} /><div><h3>Gestión empresarial</h3><p>Ventas, cobranzas y procesos administrativos. Herramientas que apoyan al equipo en su trabajo diario.</p></div></div>
+        <div><Icon name="route" size={22} /><div><h3>Operación y planificación</h3><p>Asignación de turnos, visualización de redes e integración de software con equipos y sistemas.</p></div></div>
+      </div>
+    </section>
+
+    <section class="brochure-section brochure-experience" id="experiencia" aria-labelledby="brochure-experience-title">
+      <div class="brochure-section-heading"><p class="brochure-eyebrow"><span>02 /</span> EXPERIENCIA QUE RESPALDA EL TRABAJO</p><h2 id="brochure-experience-title">Entender el negocio.<br /><span>Construir la herramienta.</span></h2></div>
+      <div class="brochure-experience-grid">{workExperience.map(experience => (
+        <article class="brochure-experience-card">
+          <p class="brochure-company">{experience.company}</p><p class="brochure-work-area">{experience.area}</p>
+          <h3>{experience.title}</h3><p class="brochure-work-description">{experience.description}</p>
+          <p class="brochure-contribution"><Icon name="check" size={18} /><span>{experience.contribution}</span></p>
+        </article>
+      ))}</div>
+      <div class="brochure-projects-heading"><h3>Proyectos de referencia</h3><a href="/#proyectos">Explorar portfolio <Icon name="northeast" size={16} /></a></div>
+      <div class="brochure-project-list">{featuredProjects.map(project => (
+        <article class="brochure-project">
+          <span class="brochure-project-number">/{project.number}</span>
+          <div><p class="brochure-project-client">{project.client} · {project.category}</p><h4><a href={`/#${project.id}`}>{project.title} <Icon name="northeast" size={16} /></a></h4><p>{project.description}</p></div>
+        </article>
+      ))}</div>
+    </section>
+
+    <section class="brochure-section" id="forma-de-trabajo" aria-labelledby="brochure-process-title">
+      <div class="brochure-section-heading"><p class="brochure-eyebrow"><span>03 /</span> CÓMO TRABAJAMOS</p><h2 id="brochure-process-title">Un proyecto completo.<br /><span>Un solo punto de contacto.</span></h2><p>Como proveedor independiente, me encargo de la gestión, el diseño, la programación y la implementación. Trabajas directamente con quien entiende y construye la solución.</p></div>
+      <ol class="brochure-process">{process.map((step, index) => <li><span>{String(index + 1).padStart(2, '0')}</span><h3>{step.title}</h3><p>{step.description}</p></li>)}</ol>
+      <div class="brochure-person"><span class="brochure-person-mark" aria-hidden="true">jp.</span><div><h3>Javier Placencia</h3><p>Ingeniero Civil Informático · Universidad del Bío-Bío</p><p>Desarrollo Full Stack, sistemas empresariales y soluciones para la operación. Trato directo y foco en herramientas útiles y mantenibles.</p></div><a href="/#sobre-mi">Conoce más sobre mí <Icon name="northeast" size={16} /></a></div>
+    </section>
+
+    <section class="brochure-contact" id="contacto" aria-labelledby="brochure-contact-title">
+      <div><p class="brochure-eyebrow">EL PRÓXIMO PASO</p><h2 id="brochure-contact-title">Hablemos de lo que<br /><span>tu empresa necesita.</span></h2><p>Cuéntame qué proceso quieres mejorar o qué sistema necesitas desarrollar. Empecemos por entender el desafío.</p><a class="brochure-button brochure-button-sage" href={`mailto:${profile.email}?subject=Consulta%20de%20servicios%20de%20desarrollo`}>Consultar por un proyecto <Icon name="northeast" size={18} /></a></div>
+      <address class="brochure-contact-details"><span>CONTACTO DIRECTO</span><a class="brochure-email" href={`mailto:${profile.email}`}>{profile.email}</a><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn · Javier Placencia <Icon name="northeast" size={16} /></a><a href={siteUrl}>javopa.github.io <Icon name="northeast" size={16} /></a><p>Desarrollo independiente de software para empresas.</p></address>
+    </section>
+    <p class="brochure-permalink">Brochure digital · <a href={brochureUrl}>{brochureUrl}</a></p>
+  </main>
+
+  <script>
+    const printButton = document.querySelector<HTMLButtonElement>('#print-brochure');
+    if (printButton && typeof window.print === 'function') {
+      printButton.hidden = false;
+      printButton.addEventListener('click', () => window.print());
+    }
+    const shareButton = document.querySelector<HTMLButtonElement>('#share-brochure');
+    const shareStatus = document.querySelector<HTMLElement>('#brochure-share-status');
+    if (shareButton && navigator.clipboard && window.isSecureContext) {
+      shareButton.hidden = false;
+      let resetTimer: ReturnType<typeof setTimeout>;
+      shareButton.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(shareButton.dataset.url || window.location.href);
+          const label = shareButton.querySelector('span');
+          if (label) label.textContent = 'Enlace copiado';
+          if (shareStatus) shareStatus.textContent = 'Enlace del brochure copiado al portapapeles.';
+          clearTimeout(resetTimer);
+          resetTimer = setTimeout(() => { if (label) label.textContent = 'Copiar enlace'; if (shareStatus) shareStatus.textContent = ''; }, 3000);
+        } catch {
+          const label = shareButton.querySelector('span');
+          if (label) label.textContent = 'Copia el enlace al pie';
+          if (shareStatus) shareStatus.textContent = 'No se pudo copiar. Puedes seleccionar el enlace del brochure al final de la página.';
+        }
+      });
+    }
+  </script>
+</Layout>

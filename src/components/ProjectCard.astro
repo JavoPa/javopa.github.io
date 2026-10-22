@@ -5,7 +5,7 @@ import type { featuredProjects } from '../data/portfolio';
 interface Props { project: (typeof featuredProjects)[number]; }
 const { project } = Astro.props;
 ---
-<article class:list={['featured-project', { 'project-wide': project.number === '01' }]}>
+<article id={project.id} class:list={['featured-project', { 'project-wide': project.number === '01' }]}>
   <SystemVisual variant={project.visual} />
   <div class="project-info">
     <div class="project-meta"><span>{project.category}</span><span class:list={['project-status', { current: project.current }]}>{project.current ? 'En desarrollo' : '2025'}</span></div>
