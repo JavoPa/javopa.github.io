@@ -1,48 +1,44 @@
-# Astro Starter Kit: Basics
+# Javier Placencia · Portfolio
 
-```sh
-npm create astro@latest -- --template basics
+Portfolio profesional y presentación de servicios de desarrollo independiente de software para empresas. Construido como sitio estático con Astro 5, CSS y TypeScript, preparado para GitHub Pages.
+
+## Desarrollo local
+
+Requiere Node.js 22 LTS y npm.
+
+```powershell
+npm ci
+npm run dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Abre la dirección que muestra Astro (habitualmente `http://localhost:4321`).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```powershell
+npm run build
+npm run preview
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+`build` genera el sitio de producción en `dist/`; `preview` permite revisarlo localmente.
 
-## 🧞 Commands
+## Contenido y estructura
 
-All commands are run from the root of the project, from a terminal:
+- `src/data/portfolio.ts`: datos de contacto, proyectos, experiencia profesional, servicios y tecnologías.
+- `src/components/Inicio.astro`: secciones e interacciones de la página.
+- `src/components/ProjectCard.astro`: presentación y casos de los proyectos destacados.
+- `src/components/SystemVisual.astro`: esquemas conceptuales creados con HTML, CSS y SVG.
+- `src/components/Header.astro`: navegación y menú móvil.
+- `src/styles/global.css`: paleta, tipografía, componentes y adaptación a pantallas.
+- `src/layouts/Layout.astro`: metadatos, canonical, Open Graph y datos estructurados.
+- `public/`: fuentes locales, favicon y recursos gráficos.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+El portfolio incluye los proyectos de Automatización y Optimización de Turnos, Sistema Eléctrico Interactivo EFE Central y Sistema Eléctrico Interactivo EFE SUR, además de seis proyectos anteriores. Los esquemas son ilustrativos: no son capturas de aplicaciones ni representan datos operacionales reales.
 
-## 👀 Want to learn more?
+La presentación de servicios abarca sistemas empresariales a medida, automatización, transformación digital e integración y evolución de sistemas. El bloque de experiencia profesional recoge el liderazgo Full Stack y la mejora del sistema de gestión integrado en EFE SUR, junto con la digitalización de ventas y cobranzas para el grupo empresarial de importadoras Durban, Giorgio y Vergio.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Los casos de proyecto usan un diálogo nativo accesible, con navegación por teclado y cierre con Escape. Si JavaScript no está disponible, los detalles siguen funcionando como desplegables. Las tarjetas, enlaces de contacto y navegación permanecen disponibles sin JavaScript; los filtros y la copia de correo se habilitan progresivamente.
+
+## Publicación
+
+El flujo existente en `.github/workflows/` compila y publica en GitHub Pages al subir cambios a `main`. La URL del sitio se configura en `astro.config.mjs`. Para revisar los cambios antes de publicar, usa la compilación y la vista previa local.
+
+No se requieren backend, variables de entorno ni servicios externos para ejecutar el sitio. El contacto usa enlaces de correo, LinkedIn y GitHub; no se envían datos a un formulario.

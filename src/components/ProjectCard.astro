@@ -1,0 +1,26 @@
+---
+import Icon from './Icon.astro';
+import SystemVisual from './SystemVisual.astro';
+import type { featuredProjects } from '../data/portfolio';
+interface Props { project: (typeof featuredProjects)[number]; }
+const { project } = Astro.props;
+---
+<article class:list={['featured-project', { 'project-wide': project.number === '01' }]}>
+  <SystemVisual variant={project.visual} />
+  <div class="project-info">
+    <div class="project-meta"><span>{project.category}</span><span class:list={['project-status', { current: project.current }]}>{project.current ? 'En desarrollo' : '2025'}</span></div>
+    <p class="project-client">{project.client} <span>/ Empresa de los Ferrocarriles del Estado</span></p>
+    <h3>{project.title}</h3><p class="project-description">{project.description}</p>
+    <ul class="tech-tags" aria-label="Tecnologías">{project.tags.map(tag => <li>{tag}</li>)}</ul>
+    <div class="project-bottom"><time datetime={project.datetime}>{project.period}</time><span class="project-number">/{project.number}</span></div>
+    <details class="case-details" data-title={project.title}>
+      <summary>Explorar proyecto <Icon name="northeast" size={18} /></summary>
+      <div class="case-content"><p class="case-eyebrow">{project.client} · {project.period}</p>
+        <h4>El desafío</h4><p>{project.challenge}</p><h4>La solución</h4><p>{project.solution}</p>
+        <h4>Alcance del proyecto</h4><ul>{project.features.map(feature => <li>{feature}</li>)}</ul>
+        <h4>Arquitectura y tecnologías</h4><dl class="architecture-list">{project.architecture.map(([label, value]) => <div><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
+        <p class="case-note"><Icon name="code" size={16} /> Proyecto asociado con Empresa de los Ferrocarriles del Estado.</p>
+      </div>
+    </details>
+  </div>
+</article>

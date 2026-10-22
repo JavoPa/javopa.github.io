@@ -1,0 +1,55 @@
+---
+interface Props { variant: string; }
+const { variant } = Astro.props;
+const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+const rows = ['Equipo A', 'Equipo B', 'Equipo C', 'Equipo D'];
+---
+{variant === 'hero' ? (
+  <div class="hero-art" aria-hidden="true">
+    <div class="art-coordinate coordinate-top">INGENIERÍA APLICADA / 01</div>
+    <div class="system-orbit orbit-one"></div><div class="system-orbit orbit-two"></div>
+    <svg class="hero-network" viewBox="0 0 500 400" fill="none">
+      <path class="network-path dim" d="M45 198h75l68-85h117l71 85h82M120 198l68 88h117l71-88M250 113v173" />
+      <path class="network-path bright" d="M45 198h75l68-85h62v85h126l-71 88h-55" />
+      <path class="network-path dim" d="M188 113 120 50M305 286l68 67M376 198v-90M120 198v110" />
+      {[[45,198],[120,198],[188,113],[305,113],[376,198],[458,198],[188,286],[305,286],[250,113],[250,286]].map(([cx,cy]) => <circle cx={cx} cy={cy} r="5" fill="#1b211e" stroke="#647168" stroke-width="2" />)}
+      <circle cx="250" cy="198" r="36" fill="#c9dea9" /><path d="m238 198 8 8 17-19" stroke="#222b20" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      <circle cx="120" cy="198" r="5" fill="#c9dea9" /><circle cx="188" cy="113" r="5" fill="#c9dea9" />
+      <text x="153" y="94">PLANIFICAR</text><text x="320" y="312">CONECTAR</text>
+    </svg>
+    <div class="floating-label label-top"><span class="small-status"></span> Lógica que conecta</div>
+    <div class="floating-label label-bottom"><span class="code-symbol">&lt;/&gt;</span><span>De la idea<br /><strong>a la operación.</strong></span></div>
+    <div class="art-coordinate coordinate-bottom">SOFTWARE A MEDIDA <span>WEB / DESKTOP / INTEGRACIÓN</span></div>
+  </div>
+) : variant === 'schedule' ? (
+  <div class="product-visual schedule-visual" aria-hidden="true"><div class="mock-window">
+    <div class="window-bar"><span class="window-dots"><i></i><i></i><i></i></span><span>planificación / gráfico mensual</span><span class="window-square"></span></div>
+    <div class="mock-body"><div class="mock-sidebar"><span class="mini-brand">jp.</span><i class="sidebar-active"></i><i></i><i></i><i></i><i></i></div>
+      <div class="mock-main"><div class="mock-heading"><span>Planificación de turnos<small>Una visión de toda la operación</small></span><span class="mock-badge">Mensual</span></div>
+        <div class="schedule-grid"><span class="grid-label">Equipo</span>{days.map(day => <span class="grid-day">{day}</span>)}
+          {rows.map((row, r) => <><span class="grid-label">{row}</span>{days.map((_, c) => <span class:list={['shift-cell', { 'shift-rest': (r + c) % 4 === 0, 'shift-early': (r + c) % 4 === 1, 'shift-late': (r + c) % 4 > 1 }]}>{(r + c) % 4 === 0 ? '—' : (r + c) % 4 === 1 ? 'AM' : 'PM'}</span>)}</>)}
+        </div><div class="mock-footer"><span><i></i> Turnos · Disponibilidad · Reglas</span><span>↗</span></div>
+      </div>
+    </div></div><span class="visual-caption">VISTA CONCEPTUAL · DATOS ILUSTRATIVOS</span>
+  </div>
+) : variant === 'network' ? (
+  <div class="product-visual network-visual" aria-hidden="true">
+    <div class="diagram-top"><span class="diagram-icon">⌘</span><span>Topología de la red<small>Nodos · Líneas · Interruptores</small></span><span class="diagram-mode">SIMULACIÓN</span></div>
+    <svg class="topology-diagram" viewBox="0 0 500 200" fill="none">
+      <path d="M30 90h85l55-45h165l55 45h80M115 90l55 65h165l55-65M240 45v110" stroke="#3d5149" stroke-width="2" />
+      <path d="M30 90h85l55-45h70v110h95l55-65h80" stroke="#c9dea9" stroke-width="2.5" />
+      {[[30,90],[115,90],[170,45],[240,45],[335,45],[390,90],[470,90],[170,155],[240,155],[335,155]].map(([cx,cy], i) => <g><circle cx={cx} cy={cy} r="8" fill="#1b2824" stroke={i === 4 || i === 7 ? '#62746b' : '#c9dea9'} stroke-width="2" /><circle cx={cx} cy={cy} r="2" fill={i === 4 || i === 7 ? '#62746b' : '#c9dea9'} /></g>)}
+      <path d="M186 40v10m8-10v10M276 150v10m8-10v10" stroke="#c9dea9" stroke-width="2" />
+      <text x="14" y="118">NODO A</text><text x="218" y="25">SUBESTACIÓN</text><text x="432" y="118">NODO B</text>
+    </svg>
+    <div class="diagram-legend"><span><i></i> Conexión activa</span><span><i></i> Conexión inactiva</span></div>
+    <span class="visual-caption">ESQUEMA ILUSTRATIVO · NO REPRESENTA LA RED REAL</span>
+  </div>
+) : (
+  <div class="product-visual plc-visual" aria-hidden="true">
+    <div class="diagram-top"><span class="diagram-icon">↔</span><span>Del software al hardware<small>Comunicación · Control · Integración</small></span></div>
+    <div class="plc-flow"><span class="software-node"><span>&lt;/&gt;</span>Python</span><span class="protocol-line"><small>MODBUS TCP</small></span><div class="plc-device"><div class="plc-terminals">{Array.from({length:12}, () => <i></i>)}</div><div class="plc-device-body"><span>KINCO<small>K608-40DT</small></span><span class="plc-lights"><i></i><i></i><i></i></span></div><div class="plc-terminals">{Array.from({length:12}, () => <i></i>)}</div></div></div>
+    <div class="plc-specs"><span><strong>25</strong> seccionadores</span><span><strong>64</strong> salidas digitales</span><span><strong>14</strong> de reserva</span></div>
+    <span class="visual-caption">ARQUITECTURA ILUSTRATIVA</span>
+  </div>
+)}

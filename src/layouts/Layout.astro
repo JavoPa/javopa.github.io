@@ -1,68 +1,24 @@
 ---
-import { ClientRouter } from 'astro:transitions'
-import '@/styles/global.css'
-import Footer from '@/components/Footer.astro'
-import { fixedTitle } from '@/constants/pageTitles'
-interface Props {
-	title: string
-}
-
-const { title = fixedTitle} = Astro.props
+import '@/styles/global.css';
+import Footer from '@/components/Footer.astro';
+import { fixedTitle } from '@/constants/pageTitles';
+interface Props { title?: string; }
+const { title = fixedTitle } = Astro.props;
+const description = 'Javier Placencia, Ingeniero Civil Informático. Sistemas empresariales, desarrollo Full Stack y transformación digital para digitalizar procesos de gestión, ventas, cobranzas y operación.';
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const image = new URL('/images/social-card.png', Astro.site);
+const schema = { '@context': 'https://schema.org', '@type': 'Person', name: 'Javier Placencia', url: Astro.site?.href, jobTitle: 'Ingeniero Civil Informático · Desarrollador independiente de software', email: 'mailto:javixempresa@gmail.com', alumniOf: { '@type': 'CollegeOrUniversity', name: 'Universidad del Bío-Bío' }, sameAs: ['https://github.com/JavoPa', 'https://www.linkedin.com/in/javier-placencia/'], knowsAbout: ['Sistemas empresariales', 'Desarrollo Full Stack', 'Transformación digital', 'Automatización de procesos', 'Python', 'React', 'Optimización matemática'] };
 ---
-
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>{title}</title>
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<!-- Preload de las fuentes para que no se vea el cambio de fuente al cargar la pagina -->
-		<link rel="preload" href="/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
-		<link rel="preload" href="/fonts/Roboto-Medium.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
-		<link rel="preload" href="/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
-		<!-- Metadata -->
-		<meta name="description" content="Portfolio de Javier Placencia" />
-		<meta name="keywords" content="portfolio, javier placencia, desarrollador web, frontend, backend" />
-		<meta name="author" content="Javier Placencia" />
-		<!-- Habilita la transicion de navegacion del cliente -->
-		<ClientRouter />
-	</head>
-	<body>
-		<slot />
-		<Footer />
-	</body>
-</html>
-
-<style>
-	html {
-		margin: 0;
-		width: 100%;
-		background: 
-			linear-gradient(180deg, #0a1f2e 0%, #10232e 50%, #0a1f2e 100%),
-			repeating-linear-gradient(45deg, transparent, transparent 100px, rgba(17, 161, 130, 0.02) 100px, rgba(17, 161, 130, 0.02) 200px);
-		color: var(--color-theme-soft-blue);
-		font-family: 'Roboto', sans-serif;
-	}
-
-	body {
-		margin: 0;
-		width: 100%;
-		min-height: 100vh;
-		display: flex;
-		flex-direction: column;
-		position: relative;
-	}
-
-	body::before {
-		content: '';
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		height: 300px;
-		background: radial-gradient(ellipse at top, rgba(17, 161, 130, 0.15) 0%, transparent 70%);
-		pointer-events: none;
-		z-index: 0;
-	}
-</style>
+<html lang="es"><head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#151817" /><meta name="color-scheme" content="dark" />
+  <title>{title}</title><link rel="canonical" href={canonical} /><link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preload" href="/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+  <link rel="preload" href="/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+  <meta name="description" content={description} /><meta name="author" content="Javier Placencia" />
+  <meta property="og:type" content="website" /><meta property="og:locale" content="es_CL" /><meta property="og:site_name" content="Javier Placencia · Software a medida" />
+  <meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:url" content={canonical} /><meta property="og:image" content={image} /><meta property="og:image:type" content="image/png" /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:image:alt" content="Javier Placencia. Software que hace avanzar tu operación." />
+  <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content={title} /><meta name="twitter:description" content={description} /><meta name="twitter:image" content={image} /><meta name="twitter:image:alt" content="Javier Placencia. Software que hace avanzar tu operación." />
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+</head><body><slot /><Footer /></body></html>
